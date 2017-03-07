@@ -1,0 +1,71 @@
+Further Reading and references:
+
+https://www.codeproject.com/Articles/1018930/Strategy-Design-Pattern-Explained-With-A-Real-Worl
+https://dzone.com/articles/design-patterns-in-the-real-world-strategy
+https://www.topcoder.com/tc?module=Static&d1=tutorials&d2=strategyPattern
+https://www.youtube.com/watch?v=v9ejT8FO-7I
+https://dockyard.com/blog/2013/07/25/design-patterns-strategy-pattern
+
+
+
+
+
+
+> Essentially it says use composition over inheritance
+
+The easiest way to determine whether a strategy pattern will be needed is during the reading of the requirements. If the requirements ask for some logic or some other logic ('or' being the important part), you probably have a very good candidate for the strategy pattern. Likewise, if you find yourself thinking that there are two or more ways of accomplishing some task, a strategy pattern is likely needed.
+
+STEPS:
+
+1. Define stragtegy: the main class which processes the strategies, and choose the correct one: Grill Here
+2. Define a family of algorithms: define classes
+3. Encapsulate each one: Make them subclasses with a main class as interface
+4. Make them interchangeable: In the calling class interchange them with setter method
+
+In other words, this pattern must provide an interface and a number of independent implementations of that interface. Each implementation performs some specific function, can be fully replaced by another implementation and is independent of others and from the enclosing design. 
+
+A good real world example of a strategy pattern would be a credit card purchase. When you buy something with a credit card, the type of credit card doesn't matter. All credit cards have a magnetic strip that has encoded information in it. The strip, and what it contains, represent the 'interface' and the type of card would be the 'implementation'. Each credit card can be replaced by any other and all are fully independent of each other. 
+
+Another one would be a stragegy to use features in a phone
+Steps:
+1. Define the main class say phone
+2. Define the different features through subclasses
+3. Make a main interface which can be a parent of all the subclasses
+4. Use the interface class in the phone class
+
+
+Another Example implemented here: 
+
+Food class is super class of three other class, food class has method as inteface but it can only be used from children: You have to encapsulate alogorithm for each case and impleement it at one place interchangibly without any need to change method in Grill  which is the straategy class.
+
+> Using this pattern We were able to switch out items without creating a new class of Grill, i.e. using interchangibly 
+
+
+
+
+											|-----------------------------|
+											|							  |
+											|							  |
+											|		    FOOD		      |
+											|			Type              |
+										  (No implementation error when called)			  
+											|							  |
+											|							  |
+											|							  |
+											|-----------------------------|
+									|						|						|						
+									|						|						|						
+									|						|						|						
+									|						|						|						
+								   \|/					   \|/					   \|/
+
+			|-----------------------------|	|-----------------------------|	|-----------------------------|	
+			|							  |	|							  | |							  |
+			|							  |	|							  | |							  |
+			|		   HAMBURGER		  |	|		 VEGGIE PATTY		  |	|		   HOTDOG			  |	
+			|			Type			  |	|			Type			  |	|			Type			  |	
+			|							  |	|							  |	|							  |	
+			|							  |	|							  |	|							  |	
+			|							  |	|							  |	|							  |	
+			|-----------------------------|	|-----------------------------|	|-----------------------------|
+
